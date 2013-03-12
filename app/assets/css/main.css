@@ -2,6 +2,15 @@ body {
   padding-top: 2px;
   padding-bottom: 40px; }
 
+#content, .sidebar-nav {
+  padding: 50px 0; }
+
+@media (max-width: 980px) {
+  /* Enable use of floated navbar text */
+  .navbar-text.pull-right {
+    float: none;
+    padding-left: 5px;
+    padding-right: 5px; } }
 .table-users tbody td {
   line-height: 36px; }
 .table-users tfoot td.pagination-wrap {
