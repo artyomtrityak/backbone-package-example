@@ -12,19 +12,20 @@ define (require, exports, module) ->
 			'organization/users(/p/:page)': 'showUsersList'
 			'organization/users/add': 'addUser'
 			'organization/users/:id': 'showUserDetails'
+			'organization/info': 'showInfo'
 
 		menuSectionData:
 			title: 'Organization'
 			items: [
 				{
+					route: '/organization/info'
+					action: 'showInfo'
+					text: 'Info'
+				}
+				{
 					route: 'organization/users'
 					action: 'showUsersList'
 					text: 'Users'
-				}
-				{
-					route: 'test'
-					action: 'testAction'
-					text: 'Test Item'
 				}
 			]
 
@@ -34,6 +35,9 @@ define (require, exports, module) ->
 
 		initMenuSection: ->
 			new MenuSectionView(@menuSectionData).render()
+
+		showInfo: ->
+			$('#demo-box').html '<h1>Organization Information...</h1>'
 
 		showUsersList: (page)->
 			page = parseInt(page) or 1
