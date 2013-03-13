@@ -1,7 +1,8 @@
 define (require, exports, module)->
+	BaseView = require 'shared/base_view'
 	tpl = require 'text!./templates/demo.html'
 
-	exports.View = Backbone.View.extend(
+	exports.View = BaseView.extend(
 		template: _.template tpl
 
 		events: 
