@@ -1,7 +1,4 @@
 define (require, exports, module) ->
-	
-	# Load appState
-	appState = require 'shared/app_state'
 
 	# Load menu container
 	MenuContainerView = require 'shared/base_menu_container_view'
@@ -38,6 +35,5 @@ define (require, exports, module) ->
 		initMenu: ->
 			@menuContainerView = new MenuContainerView
 				el: '#menu'
-			appState.set 'menuContainerView', @menuContainerView
 	}
 	return
