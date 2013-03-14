@@ -1,5 +1,6 @@
 define (require, exports, module) ->
 
+	Config = require './config'
 	UsersView = require './users_view'
 	UsersCollection = require './users_collection'
 	BaseController = require 'shared/base_controller'
@@ -14,27 +15,12 @@ define (require, exports, module) ->
 			'organization/users/:id': 'showUserDetails'
 			'organization/info': 'showInfo'
 
-		menuSectionData:
-			title: 'Organization'
-			items: [
-				{
-					route: '/organization/info'
-					action: 'showInfo'
-					text: 'Info'
-				}
-				{
-					route: 'organization/users'
-					action: 'showUsersList'
-					text: 'Users'
-				}
-			]
-
 		constructor: ->
 			super
 			@initMenuSection()
 
 		initMenuSection: ->
-			new MenuSectionView(@menuSectionData).render()
+			new MenuSectionView(Config.menuSectionData).render()
 
 		showInfo: ->
 			$('#demo-box').html '<h1>Organization Information...</h1>'

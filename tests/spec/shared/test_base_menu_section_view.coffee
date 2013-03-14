@@ -2,31 +2,16 @@ expect = chai.expect
 
 describe 'BaseMenuSectionViewTest', ->
 	
-	BaseMenuSectionView = null
 	menuSectionData = null
-
-	initmenuSectionData = ->
-		menuSectionData =
-			title: 'Organization'
-			items: [
-				{
-					route: '/organization/info'
-					action: 'showInfo'
-					text: 'Info'
-				}
-				{
-					route: 'organization/users'
-					action: 'showUsersList'
-					text: 'Users'
-				}
-			]
+	BaseMenuSectionView = null
 
 	beforeEach (done) ->
 		require [
 			'shared/base_menu_section_view'
-		], (_BaseMenuSectionView) ->
-			initmenuSectionData()
+			'packages/organization/config'
+		], (_BaseMenuSectionView, OrgConfig) ->
 			BaseMenuSectionView = _BaseMenuSectionView
+			menuSectionData = OrgConfig.menuSectionData
 			done()
 
 	it 'expect that view can be rendered in the DOM', (done) ->
