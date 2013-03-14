@@ -20,6 +20,7 @@ describe 'Test users controller', ->
 			'organization/users(/p/:page)': 'showUsersList'
 			'organization/users/add': 'addUser'
 			'organization/users/:id': 'showUserDetails'
+			'organization/info': 'showInfo'
 		}
 
 		expect(cnt).to.have.property 'showUsersList'
